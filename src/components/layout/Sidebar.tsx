@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { Box, ChevronDown, Database, LayoutDashboard, User, ChevronRight, Receipt } from 'lucide-react';
+import logoWhite from "@/assets/img/logo-daily-mart-putih.svg";
 
 interface MenuItem {
     route?: string;
@@ -131,7 +132,7 @@ const Sidebar = ({ isOpen, onClose }: AdminSidebarProps) => {
                 {/* Logo */}
                 <div className="p-6 border-b border-white/10 flex-shrink-0 bg-white/5 backdrop-blur-md">
                     <div className="w-40 h-40 mx-auto flex items-center justify-center">
-                        <img src="/img/logo-daily-mart-putih.svg" className="w-24 h-24 opacity-90" />
+                        <img src={logoWhite} className="w-24 h-24 opacity-90" />
                     </div>
                 </div>
 

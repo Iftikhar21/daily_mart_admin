@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../../api";
 import { useAuth } from "../../context/AuthContext";
 import { Eye, EyeOff } from "lucide-react";
+import logo from "@/assets/img/logo-daily-mart.svg";
 
 const Login = () => {
     const nav = useNavigate();
@@ -54,7 +55,7 @@ const Login = () => {
             <div className="w-full md:w-1/2 bg-white flex items-center justify-center p-8 md:p-12 order-1 md:order-1">
                 <div className="text-center text-white max-w-md">
                     <div className="mb-6">
-                        <img src="/img/logo-daily-mart.svg" alt="Logo" className="w-40 mb-4" />
+                        <img src={logo} alt="Logo" className="w-40 mb-4" />
                     </div>
                 </div>
             </div>
