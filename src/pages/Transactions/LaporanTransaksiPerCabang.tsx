@@ -210,20 +210,17 @@ export default function LaporanTransaksiPerCabang() {
                 params.is_online = typeFilter === "online" ? 1 : 0;
             }
 
-            // Ambil transaksi - PERBAIKAN DI SINI
-            console.log('Fetching report with params:', params); // Debug
+            console.log('Fetching report with params:', params);
 
             const res = await api.get("/laporan/branch-transactions", { params });
 
-            console.log('API Response:', res.data); // Debug response structure
+            console.log('API Response:', res.data); 
 
-            // Pastikan struktur data sesuai
             if (res.data && res.data.transactions) {
                 setTransactions(res.data.transactions.data || []);
                 setTotalPages(res.data.transactions.last_page || 1);
                 setTotalItems(res.data.transactions.total || 0);
             } else {
-                // Fallback jika struktur berbeda
                 setTransactions(res.data || []);
                 setTotalPages(1);
                 setTotalItems(res.data?.length || 0);

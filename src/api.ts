@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://192.168.1.3:8000/api",
+    // baseURL: "http://192.168.1.3:8000/api",
+    // baseURL: "http://10.204.81.65:8000/api",
+    baseURL: "https://iftikhar-azhar.site/daily-mart/api",
 });
 
 export const setAuthToken = (token: string | null) => {
@@ -16,6 +18,6 @@ export const setAuthToken = (token: string | null) => {
 
 const saved = localStorage.getItem("token");
 if (saved) setAuthToken(saved);
-
+    
 
 export default api;

@@ -147,7 +147,7 @@ export default function User() {
                 });
             } else {
                 if (!userPassword.trim()) return alert("Password tidak boleh kosong");
-                await api.post("/user/create-user", {
+                await api.post("/create-user", {
                     name: userName,
                     email: userEmail,
                     password: userPassword,
