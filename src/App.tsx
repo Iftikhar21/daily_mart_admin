@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 // Import CSS
 import './index.css';
@@ -20,38 +20,24 @@ import ProfileAdmin from './pages/Profile';
 function App() {
   return (
     <AuthProvider>
-      <Router>
+      <Router basename="/dm">
         <div className="App">
           <Routes>
-            {/* Public Routes */}
             <Route path="/" element={<Login />} />
-
-            {/* Admin Protected Routes */}
             <Route path="/admin/dashboard" element={<Dashboard />} />
-
-            {/* Cabang */}
             <Route path="/admin/cabang" element={<Branch />} />
-
-            {/* Produk */}
-            <Route path="/admin/produk" element={<BranchSelect />} />               {/* pilih cabang */}
-            <Route path="/admin/produk/:branchId" element={<ProductList />} />     {/* list produk per cabang */}
-
+            <Route path="/admin/produk" element={<BranchSelect />} />
+            <Route path="/admin/produk/:branchId" element={<ProductList />} />
             <Route path="/admin/kategori-produk" element={<Category />} />
-
-            {/* Manajemen Pengguna */}
             <Route path="/admin/kelola-pengguna" element={<User />} />
             <Route path="/admin/kelola-petugas" element={<KelolaPetugas />} />
             <Route path="/admin/kelola-kurir" element={<KelolaKurir />} />
             <Route path="/admin/kelola-pelanggan" element={<KelolaPelanggan />} />
-
-            {/* Manajemen Transaksi */}
             <Route path="/admin/request-stok" element={<StockRequestPage />} />
             <Route path="/admin/laporan-penjualan-cabang" element={<LaporanTransaksiPerCabang />} />
-
-            {/* Profile Admin */}
             <Route path="/admin/profil" element={<ProfileAdmin />} />
 
-            {/* 404 Not Found Route */}
+            {/* <Route path="*" element={<div>404</div>} /> */}
             <Route
               path="*"
               element={
@@ -59,12 +45,12 @@ function App() {
                   <div className="text-center">
                     <h1 className="text-4xl font-bold text-gray-900 mb-4">404</h1>
                     <p className="text-xl text-gray-600 mb-8">Halaman tidak ditemukan</p>
-                    <a
-                      href="/admin/dashboard"
+                    <Link 
+                      to="/admin/dashboard"
                       className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors duration-200"
                     >
                       Kembali ke Dashboard
-                    </a>
+                    </Link>
                   </div>
                 </div>
               }
